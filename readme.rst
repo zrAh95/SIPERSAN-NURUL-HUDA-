@@ -16,6 +16,33 @@ Infrastruktur yang dipakai dalam sistem ini diantaranya sebagai berikut :
 5. C++ untuk esp32
 6. javascript bootstrap
 
+adapun untuk rangkaian komponen esp32 nya kabel nya sebagai berikut : 
+
+I. Komponen: RFID-RC522
+1. SS_PIN: Pin 21 
+2. RST_PIN: Pin 22 
+3. SPI Pins:
+4. SCK: Pin 18 
+5. MISO: Pin 19 
+6. MOSI: Pin 23 
+
+II. Komponen: Layar LCD 16x2
+1. I2C Address: 0x27 
+2. I2C Pins:
+3. SDA: Pin 26 
+4. SCL: Pin 25 
+
+III. Komponen: LED RGB
+1. RGB_R (Merah): Pin 13 
+2. RGB_G (Hijau): Pin 12 
+3. RGB_B (Biru): Pin 14 
+
+IV. Komponen: Passive Buzzer
+1. BUZZER: Pin 4 
+
+V. Komponen: Tombol (Button)
+1. BUTTON_PIN: Pin 27
+
 Jadi dengan senang hati saya mengizinkan untuk dipakai di seluruh ponpes di indonesia jika ingin menerapkan sistem ini namun alangkah baiknya izin 
 terlebih dahulu kepada pihak (Pondok Pesantren Nurul Huda Setu Cikarageman) jika ingin menerapkanya, dan jika rekan rekan mahasiswa/i jika ingin .
 memakai untuk tugas di persilahkan jikalau sistem ini diperjualbelikan 
