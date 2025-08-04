@@ -1,3 +1,31 @@
+###############################################
+Sipersan Sistem Perizinan Keluar Masuk Santri
+###############################################
+
+Assalamualaikum Warrahmatullahi Wabbarakutuhu
+
+Saya Hafiz Fachreza Firmansyah mahasiswa bina insani semester akhir yang sedang membuat tugas akhir untuk skripsi saya saya membuat project 
+ini untuk akses perizinan keluar masuk santri untuk ponpes nurul huda menggunakan RFID berikut penjelasanya jika ponpes bapak/i 
+asatidz/asatidzah.
+
+Infrastruktur yang dipakai dalam sistem ini diantaranya sebagai berikut :
+1. PHP
+2. Mysql (untuk pengelolaan database)
+3. whatsapp gateway API (FONNTE) limit pesan notifikasi 900 pesan perbulan
+4. framework codeigniter 3
+5. C++ untuk esp32
+6. javascript bootstrap
+
+Jadi dengan senang hati saya mengizinkan untuk dipakai di seluruh ponpes di indonesia jika ingin menerapkan sistem ini namun alangkah baiknya izin 
+terlebih dahulu kepada pihak (Pondok Pesantren Nurul Huda Setu Cikarageman) jika ingin menerapkanya, dan jika rekan rekan mahasiswa/i jika ingin .
+memakai untuk tugas di persilahkan jikalau sistem ini diperjualbelikan 
+secara diam diam maka saya tidak ridho dunia akhirat dan saya tuntut dan kejar dimanapun kalian 
+berada jika sistem tersebut diperjualbelikan.
+
+hormat saya
+
+HAFIZ FACHREZA FIRMANSYAH
+
 ###################
 What is CodeIgniter
 ###################
