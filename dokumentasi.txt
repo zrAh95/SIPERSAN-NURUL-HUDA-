@@ -1,0 +1,14 @@
+<!---- dokumentasi sipersan nurulhuda !---->
+
+1. jika ingin membuat akun antar pengurus masuk ke button menu pengurus tambah data pengurus wajib di isi semua untuk password harus perpaduan kapital dan karakter contoh nya "Adminnurulhuda321!" atau "Anaksholeh443!" "Anak@sholeh332"dilarang perpaduan password sepertiini "nurulhuda21" ataupun "Anaksholeh451" 
+
+2. jika ingin tambah kartu baru pilih menu santri dan perizinan lalu klik data santri setelah itu klik tambah santri, sebelum menambahkan santri wajib tekan button sampai pesan di lcd menjadi mode daftar silahkan tap kartu lalu tap kartu tersebut masukan identitas nya dan selesai 
+
+Assalamualaikum pak amar saya hafiz fachreza mahasiswa bina insani yang melakukan penelitian untuk skripsi, mohon izin memberi report pak, untuk system yang sudah saya buat alhamdulillah sudah bisa di akses ini untuk alamat website nya https://sipersannurulhuda.my.id/ dan ini untuk list list akun nya:  
+1. Superadmin2 		|| Adminnurulhuda321! 
+2. Superadmin1 		|| Superadmin1!
+3. AdminSholeh1 	|| Superadmin@2
+
+mohon izin sebelumnya pak amar saya dapat info dari dospem saya seperti ini, saya mohon izin pak sekiranya alat saya bisa di implementasikan saya mohon izin dibuatkan surat pernyataan nya pak, tapi untuk alatnya mohon izin pak dibawa sidang dulu karena penguji dan dospem saya menuntut kekeuh alat tersebut agar bisa dibawa pada saat saya sidang pak untuk sebagai bukti, terima kasih sebelumnya pak mohon maaf menggangu waktunya pak,  
+ 
+
