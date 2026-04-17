@@ -1,0 +1,12 @@
+<!---- dokumentasi sipersan nurulhuda !---->
+
+1. jika ingin membuat akun antar pengurus masuk ke button menu pengurus tambah data pengurus wajib di isi semua untuk password harus perpaduan kapital dan karakter contoh nya "Adminnurulhuda321!" atau "Anaksholeh443!" "Anak@sholeh332"dilarang perpaduan password sepertiini "nurulhuda21" ataupun "Anaksholeh451" 
+
+2. jika ingin tambah kartu baru pilih menu santri dan perizinan lalu klik data santri setelah itu klik tambah santri, sebelum menambahkan santri wajib tekan button sampai pesan di lcd menjadi mode daftar silahkan tap kartu lalu tap kartu tersebut masukan identitas nya dan selesai 
+
+ akun aktif 
+1. Achmad choiri rojaki || Adminnurulhuda321! 
+2. Superadmin1 		|| Superadmin1!
+3. Faisal Wijaya 	|| Superadmin@2
+ 
+

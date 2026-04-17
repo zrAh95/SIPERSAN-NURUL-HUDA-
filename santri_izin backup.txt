@@ -1,0 +1,214 @@
+<div class="container-fluid">
+    <h1 class="h3 mb-4 text-gray-800"><?= $title ?></h1>
+
+    <!-- Tombol Tambah Perizinan -->
+    <div class="mb-3">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalIzin">
+            Tambah Perizinan
+        </button>
+    </div>
+
+    <!-- Modal Form Tambah Izin -->
+    <div class="modal fade" id="modalIzin" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Form Tambah Perizinan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?= base_url('santri/simpan_izin') ?>" method="post">
+                        <div class="form-group">
+                            <label>No Kartu (tap untuk isi)</label>
+                            <input type="text" name="no_kartu" id="uid" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Nama Santri</label>
+                            <input type="text" name="nama_santri" id="nama" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="alamat">Alamat</label>
+                            <input type="text" id="alamat" name="alamat" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Kamar</label>
+                            <input type="text" name="kamar" id="kamar" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="tingkat">Tingkat Sekolah</label>
+                            <input type="text" id="tingkat" name="tingkat_sekolah" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="no_wa">No WA Wali</label>
+                            <input type="text" id="no_wa" name="no_walikamar" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Wali Kamar</label>
+                            <input type="text" name="nama_walikamar" id="walikamar" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="tanggal_izin">Tanggal Izin</label>
+                            <input type="date" id="tanggal_izin" name="tanggal_izin" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Keperluan</label>
+                            <textarea name="keperluan" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabel Daftar Perizinan -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <strong>Daftar Perizinan Santri</strong>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped" id="dataTable">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Santri</th>
+                        <th>Tanggal Izin</th>
+                        <th>Keperluan</th>
+                        <th>Waktu Keluar</th>
+                        <th>Waktu Kembali</th>
+                        <th>Kamar</th>
+                        <th>Wali Kamar</th>
+                        <th>No WA Wali</th>
+                        <th>Tingkat Sekolah</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $no=1; foreach ($izin as $i): ?>
+                    <tr>
+                        <td><?= $no++ ?></td>
+                        <td><?= $i->nama_santri ?></td>
+                        <td><?= $i->tanggal_izin ?></td>
+                        <td><?= $i->keperluan ?></td>
+                        <td><?= $i->waktu_keluar ?></td>
+                        <td><?= $i->waktu_kembali ?></td>
+                        <td><?= $i->kamar ?></td>
+                        <td><?= $i->nama_walikamar ?></td>
+                        <td><?= $i->no_walikamar ?></td>
+                        <td><?= $i->tingkat_sekolah ?></td>
+                        <td>
+                            <span class="badge badge-<?= $i->status == 'disetujui' ? 'success' : 'warning' ?>">
+                                <?= ucfirst($i->status) ?>
+                            </span>
+                        </td>
+                        <td>
+                            <?php if ($i->status != 'disetujui'): ?>
+                                <button class="btn btn-sm btn-success toggle-status" data-id="<?= $i->id_perizinan ?>">Setujui</button>
+
+                                <a href="<?= base_url('santri/hapus_izin/' . $i->id_perizinan) ?>" 
+                                    class="btn btn-sm btn-danger ml-1" 
+                                    onclick="return confirm('Yakin ingin menghapus data izin ini?')">
+                                    Hapus
+                                </a>
+                            <?php else: ?>
+                                <span class="text-muted">Disetujui</span>
+                            <?php endif ?>
+                        </td>
+                    </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+        $('.toggle-status').on('click', function () 
+        {
+            const btn = $(this);
+            const id = btn.data('id');
+
+            if (confirm('Yakin ingin menyetujui izin ini?')) 
+            {
+                    $.post("<?= base_url('santri/setujui') ?>", { id: id }, function (res) 
+                    {
+                        if (res.status === 'success') 
+                        {
+                            const row = btn.closest('tr');
+
+                            // ⛔ Hapus badge status sebelumnya & tampilkan yang baru
+                            row.find('td').eq(10).html('<span class="badge badge-success">Disetujui</span>');
+
+                            // ✅ Kolom aksi diganti dengan tulisan abu
+                            row.find('td').eq(11).html('<i class="text-muted">Disetujui</i>');
+
+                            // ✅ Modal centang animasi muncul
+                            $('#modalSukses').modal('show');
+                        } else if (res.status === 'already') {
+                            alert('Izin sudah disetujui sebelumnya.');
+                        } else {
+                            alert('Gagal menyetujui.');
+                        }
+                    }, 'json');
+                }
+        });
+        // AJAX polling UID
+                setInterval(() => {
+            $.getJSON('<?= base_url('api/uid') ?>', function(data) {
+                if (data.uid) {
+                    $('#uid').val(data.uid);
+                    $('#nama').val(data.nama_santri);
+                    $('#alamat').val(data.alamat);
+                    $('#kamar').val(data.kamar);
+                    $('#tingkat').val(data.tingkat_sekolah);
+                    $('#no_wa').val(data.no_walikamar);
+                    $('#walikamar').val(data.nama_walikamar);
+                }
+            });
+            }, 1500);
+    </script>
+    <!-- Modal Notifikasi -->
+        <div class="modal fade" id="modalSukses" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-sm modal-dialog-centered">
+                <div class="modal-content text-center p-3">
+                <div>
+                    <img src="<?= base_url('assets/ceklis.gif') ?>" alt="Berhasil" style="width: 100px;">
+                </div>
+                <div class="mt-2">
+                    <h5 class="text-success font-weight-bold">Berhasil Disetujui!</h5>
+                    <p class="mb-1">Notifikasi telah dikirim ke wali kamar</p>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $.getJSON("<?= base_url('api/get_uid') ?>", function(data) 
+            {
+                if (data && data.uid && data.uid !== lastUID) {
+                    lastUID = data.uid;
+
+                    $('#uid').val(data.uid);
+                    $('#nama').val(data.nama_santri);
+                    $('#alamat').val(data.alamat);
+                    $('#kamar').val(data.kamar);
+                    $('#tingkat').val(data.tingkat_sekolah);
+                    $('#no_wa').val(data.no_walikamar);
+                    $('#walikamar').val(data.nama_walikamar);
+                } else if (!data || !data.uid) {
+                    // Optional: Kosongkan field jika tidak ditemukan UID
+                    $('#uid').val('');
+                    $('#nama').val('');
+                    $('#alamat').val('');
+                    $('#kamar').val('');
+                    $('#tingkat').val('');
+                    $('#no_wa').val('');
+                    $('#walikamar').val('');
+                }
+            });
+
+        </script>
+</div>
